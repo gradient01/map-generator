@@ -9,5 +9,5 @@ def render_map():
         set_pixel(x, y, color)
 
 if __name__ == "__main__":
-    generate_map()
+    generate_map(MAP_SIZE)
     render_map()

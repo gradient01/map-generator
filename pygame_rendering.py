@@ -38,7 +38,7 @@ def render_map():
                     running = False
 
                 elif event.key == pygame.K_r:
-                    generate_map()
+                    generate_map(MAP_SIZE)
 
                     for y in range(MAP_SIZE):
                         for x in range(MAP_SIZE):
@@ -58,5 +58,5 @@ def render_map():
     pygame.quit()
 
 if __name__=="__main__":
-    generate_map()
+    generate_map(MAP_SIZE)
     render_map()
