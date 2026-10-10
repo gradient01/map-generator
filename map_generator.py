@@ -38,7 +38,7 @@ def generate_map():
         for x in range(MAP_SIZE):
             h = 0.0
 
-            for k in range(3):
+            for k in range(len(steps)):
                 step = steps[k]
                 grid = grids[k]
 
@@ -58,7 +58,7 @@ def generate_map():
                     a * (1 - ty) + b * ty
                 )
 
-            set_map(x, y, int(h * 255))
+            set_map(x, y, max(0, min(255, int(h * 255))))
 
 
 if __name__ == "__main__":
