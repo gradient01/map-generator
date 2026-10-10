@@ -2,6 +2,9 @@ import pygame
 from map_generator import *
 
 def render_map():
+    """
+    This function will be deleted on the final version on NumWorks website, it is only used to debug the map generation algorithm.
+    """
     pygame.init()
 
     SCALE = 3

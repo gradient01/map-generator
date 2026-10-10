@@ -3,7 +3,7 @@ import random
 
 MAP_SIZE = 200
 
-map = np.zeros(MAP_SIZE**2, dtype=np.uint8)
+map = np.zeros(MAP_SIZE**2, dtype=np.uint8) #"dtype=np.uint8" really important for optimization, heights are between 0 and 255
 
 def set_map(x, y, value):
     map[y * MAP_SIZE + x] = value
@@ -12,6 +12,9 @@ def get_map(x, y):
     return map[y * MAP_SIZE + x]
 
 def generate_map():
+    """
+    First version of the map generation algorithm
+    """
     random.seed()
 
     steps = [50, 20, 8]
