@@ -1,0 +1,13 @@
+from map_generator import *
+from kandinsky import *
+
+def render_map():
+    for i, elem in enumerate(map):
+        x = i % MAP_SIZE
+        y = i // MAP_SIZE
+        color = (255 - get_map(x, y),)*3
+        set_pixel(x, y, color)
+
+if __name__ == "__main__":
+    generate_map()
+    render_map()
