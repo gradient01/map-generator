@@ -6,6 +6,7 @@ SCREEN_H=222
 SCREEN_HALF_W=SCREEN_W//2
 SCREEN_HALF_H=SCREEN_H//2
 COEFF = 2
+Y_COEFF = 1
 SIZE = 10
 B = SIZE
 A = SIZE * COEFF
@@ -23,3 +24,25 @@ def draw_right_parallelogram(x, y, h, color):
 def draw_left_parallelogram(x, y, h, color):
     for dy in range(B):
         fill_rect(x-COEFF-dy*COEFF, y-dy, COEFF, h, color)
+
+def lcolor(px, py, h):
+    return (0, 200 + 20*((px + py)%2), 0)
+
+def rpcolor(px, py, h):
+    return (100 + 20*((px + py)%2),)*3
+
+def lpcolor(px, py, h):
+    return (150 + 20*((px + py)%2),)*3
+
+def render(dx, dy):
+    """
+    v1: No optimization
+    """
+    for px in range(MAP_SIZE):
+        for py in range(MAP_SIZE):
+            h = map[py * MAP_SIZE + px]
+            x = SCREEN_HALF_W + (px - py) * A + dx
+            y = SCREEN_HALF_H + (px + py) * B - h * Y_COEFF + dy
+            draw_lozenge(x, y, lcolor(px, py, h))
+            draw_right_parallelogram(x, y, h * Y_COEFF, rpcolor(px, py, h))
+            draw_left_parallelogram(x, y, h * Y_COEFF, lpcolor(px, py, h))
