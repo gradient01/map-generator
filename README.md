@@ -2,7 +2,7 @@
 
 ### On NumWorks
 - You can use the version that I have published on the NumWorks website: [link](https://my.numworks.com/python/gradient01/map_generator)
-- You can also import `map_generator.py` on your NumWorks calculator and add the code of `numworks_2d_rendering.py` at the end of it for a watch what the script do.
+- You can also import `map_generator.py` on your NumWorks calculator and add the code of `numworks_2d_rendering.py` at the end of it for see what the script do.
 
 ### On Linux
 For test this code:
@@ -26,4 +26,4 @@ map = numpy.zeros(MAP_SIZE**2, dtype=numpy.uint8)
 for stock the map.
 
 ## Roadmap
-Add an isometric 3d render engine
+Optimization on the NumWorks isometric 3d rendering
