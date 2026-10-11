@@ -16,7 +16,7 @@ def generate_map(map_size):
     """
     Second version of the map generation algorithm: Perlin noise
     """
-    random.seed()
+    #random.seed(42)
 
     GRID_X = map_size
     GRID_Y = map_size
