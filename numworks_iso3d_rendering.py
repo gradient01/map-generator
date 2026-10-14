@@ -36,7 +36,7 @@ def lpcolor(px, py, h):
 
 def render(dx, dy):
     """
-    v1: No optimization
+    v2: Not enough optimization
     """
     for px in range(MAP_SIZE):
         for py in range(MAP_SIZE):
@@ -44,5 +44,9 @@ def render(dx, dy):
             x = SCREEN_HALF_W + (px - py) * A + dx
             y = SCREEN_HALF_H + (px + py) * B - h * Y_COEFF + dy
             draw_lozenge(x, y, lcolor(px, py, h))
-            draw_right_parallelogram(x, y, h * Y_COEFF, rpcolor(px, py, h))
-            draw_left_parallelogram(x, y, h * Y_COEFF, lpcolor(px, py, h))
+            dh = h - get_map(px+1, py)
+            if dh > 0:
+                draw_right_parallelogram(x, y, dh * Y_COEFF, rpcolor(px, py, h))
+            dh = h - get_map(px, py+1)
+            if dh > 0:
+                draw_left_parallelogram(x, y, dh * Y_COEFF, lpcolor(px, py, h))

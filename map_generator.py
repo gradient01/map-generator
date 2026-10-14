@@ -10,6 +10,8 @@ def set_map(x, y, value):
     map[y * MAP_SIZE + x] = value
 
 def get_map(x, y):
+    if x < 0 or x >= MAP_SIZE or y < 0 or y >= MAP_SIZE:
+        return 0
     return map[y * MAP_SIZE + x]
 
 def generate_map(map_size):
